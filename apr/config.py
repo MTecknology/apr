@@ -9,7 +9,7 @@ import yaml
 # Default values
 DEFAULT_CONFIGURATION = {
     'loglevel': 'INFO',
-    'workspace': './_workspace',  # Distro: '/var/cache/apr',
+    'workspace': '_workspace',  # Distro: '/var/cache/apr',
     # 'models': MUST_CONFIGURE,
     # Monitor
     'record_age': '1500',
@@ -20,6 +20,7 @@ DEFAULT_CONFIGURATION = {
     'record_cam_timestamp': [
         '-vf', 'drawtext=fontfile=/usr/share/fonts/truetype/freefont/FreeMonoBold.ttf:text="%{localtime}":fontcolor=red@0.9:x=7:y=7:fontsize=72'],  # noqa:E501
     'record_compression': 'medium',
+    'target_accuracy': 85,
     }
 
 # Storage for loaded configuration
@@ -37,8 +38,8 @@ def load_configuration():
     # Find best configuration file
     if os.environ.get('APR_CONFIG'):
         config_path = os.environ['APR_CONFIG']
-    elif os.path.exists('./config.yml'):
-        config_path = './config.yml'
+    elif os.path.exists('config.yml'):
+        config_path = 'config.yml'
     elif os.path.exists('/etc/apr/config.yml'):
         config_path = '/etc/apr/config.yml'
     else:

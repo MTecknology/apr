@@ -5,6 +5,7 @@ Primary entry point
 import os
 import importlib
 
+# APR
 import apr.config
 import apr.options
 
@@ -20,10 +21,14 @@ def main():
     # Load application configuration
     apr.config.load_configuration()
 
-    # Kick off main process
-    selected_action = apr.options.get('action')
+    # Determine appropriate action
+    action_alias = {'train': 'model'}
+    action = apr.options.get('action')
+    selected_action = action_alias.get(action, action)
     if not selected_action:
         raise Exception('No action (-a) provided!')
+
+    # Kick off main process
     router = importlib.import_module(f'apr.{selected_action}')
     if not router:
         raise Exception('Unable to load selected action!')

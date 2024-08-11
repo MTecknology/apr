@@ -6,7 +6,7 @@ Configuration
 The sample configuration file shows all options and their default options.
 Start with a copy of this file and then modify it as needed.
 
-.. code-block:: sh
+  .. code-block:: sh
 
     cp example_config.yml config.yml
     sensible-editor config.yml
@@ -16,13 +16,13 @@ video capture device is set to ``None``, only audio will be recorded.
 
 **Audio capture** devices and their capabilities can be listed using:
 
-.. code-block:: sh
+  .. code-block:: sh
 
     ffmpeg -loglevel warning -sources alsa
 
 Sample Output:
 
-.. code-block:: sh
+  .. code-block:: sh
 
     Auto-detected sources for alsa:
     null [Discard all samples (playback) or generate zero samples (capture)]
@@ -39,13 +39,13 @@ which will yield the most complete result.
 
 **Video capture** devices and their capabilities can be listed using:
 
-.. code-block:: sh
+  .. code-block:: sh
 
     v4l2-ctl --list-devices --all
 
 Sample Output:
 
-.. code-block:: sh
+  .. code-block:: sh
 
     Integrated Camera: Integrated C (usb-0000:64:00.4-1):
             /dev/video0

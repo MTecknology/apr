@@ -4,12 +4,8 @@ pyttk
 pydub
 imagetk
 MoviePy
-  torch
-  torchaudio
-  matplotlib
-  opencv-python
-  tqdm
-  librosa
+torch
+torchaudio
 PyYAML
 # recommended
 simpleaudio

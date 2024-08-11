@@ -5,67 +5,59 @@ Installation
 
 APR can be installed on any unix-like system supporting Python 3.
 
-.. _install-binary:
 
-Binary
-------
+Debian Dependencies
+-------------------
 
-To Do?
+Needed by **all**:
 
-.. _install-source:
+  .. code-block:: sh
 
-Source
-------
+    sudo apt install ffmpeg v4l-utils \
+        python3-yaml python3-pydub python3-torch python3-torchaudio
 
-Follow this section to run APR from a source code checkout.
+Needed to :ref:`**monitor** <record>`:
 
-**Dependencies**
+  .. code-block:: sh
 
-Debian:
+    sudo apt install python3-fasteners
+    # Font is optional; used by record_cam_timestamp in config.yml
+    sudo apt install fonts-freefont-ttf
 
-.. code-block:: sh
+Needed to :ref:`inspect and train <train>`:
 
-    # Required
-    apt-get install ffmpeg v4l-utils python3-virtualenv
-    #python3-fasteners
+  .. code-block:: sh
 
-    # Recommended
-    apt-get install fonts-freefont-ttf
+    sudo apt install python3-tk python3-ttkthemes python3-pil.imagetk python3-moviepy
 
-**Py3 VirtualEnv**
+Python VirtualEnv
+-----------------
 
-TODO: Is this needed??
+An alternative to installing OS packages is to install using ``pip``:
 
-Create an initial environment with:
+  .. code-block:: sh
 
-.. code-block:: sh
+    # Install virtualenv and build dependencies
+    sudo apt install -y python3-virtualenv build-essenial \
+        python3-dev libasound2-dev
 
+    # Create an initial environment
     python3 -m venv ~/.mlpy
 
-and "activate" with:
+    # Load virtual environment
+    source  ~/.mlpy/bin/activate
 
-.. code-block:: sh
-
-    .  ~/.mlpy/bin/activate
-
-Install python dependencies:
-
-.. code-block:: sh
-
+    # Build dependencies
     pip3 install -r requirements.txt
 
-**Source Code**
+APR Source Code
+---------------
 
-Clone git repository:
+The easiest way to obtain APR is using git:
 
-.. code-block:: sh
+  .. code-block:: sh
 
     git clone https://github.com/audio-pattern-ranger/apr
-
-or choose `Download ZIP <https://github.com/audio-pattern-ranger/apr>`__ and unzip.
-
-If APR is "installed" using ``git clone``, then all commands must be executed
-from within ``./apr``.
 
 .. _install-verification:
 
@@ -74,7 +66,7 @@ Verification
 
 Successful installation can be verified by viewing help text:
 
-.. code-block:: sh
+  .. code-block:: sh
 
     (.mlpy) michael@vsense1:~/apr $ python3 -m apr --help
     usage: apr [-h] -a <action> [other_options]
