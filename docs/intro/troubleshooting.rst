@@ -55,7 +55,7 @@ This can be resolved by telling pip to use a different build directory:
 Log Noise
 ---------
 
-APR Inspector can produce a lot of log output when reviewing videos:
+APR Review can produce a lot of log output when reviewing videos:
 
   .. code-block:: sh
 

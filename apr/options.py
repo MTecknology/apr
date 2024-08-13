@@ -37,8 +37,8 @@ def parser():
         '-a',
         dest='action',
         metavar='<action>',
-        choices=['monitor', 'train', 'model', 'inspect'],
-        help='Action to perform (Available: monitor, train, inspect)')
+        choices=['monitor', 'review', 'train', 'model', 'inspect'],
+        help='Action to perform (Available: monitor, review, train, inspect)')
 
     # Options for Monitor
     monitor = parser.add_argument_group('monitor')

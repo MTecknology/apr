@@ -1,5 +1,5 @@
 '''
-Root Inspection Window
+Root Review Window
 '''
 # Python
 import logging
@@ -7,9 +7,9 @@ import tkinter
 import tkinter.ttk
 
 # APR
-import apr.inspect.menu
-import apr.inspect.filenav
-import apr.inspect.review
+import apr.review.menu
+import apr.review.filenav
+import apr.review.review
 
 
 class RootWindow(tkinter.Tk):
@@ -21,15 +21,15 @@ class RootWindow(tkinter.Tk):
 
         # Primary application frames
         self.mainframes = {
-                'review': apr.inspect.review.VideoReview,
-                'filenav': apr.inspect.filenav.FileSelection,
+                'review': apr.review.review.VideoReview,
+                'filenav': apr.review.filenav.FileSelection,
                 }
         self.winfo_toplevel().target_file = tkinter.StringVar(self)
         self.winfo_toplevel().target_dir = tkinter.StringVar(self)
         self.winfo_toplevel().tempdir = None
 
         # Window properties
-        self.title('APR Inspector')
+        self.title('APR Review')
         self.minsize(800, 550)
 
         # Window style
@@ -41,7 +41,7 @@ class RootWindow(tkinter.Tk):
         self.load_styles()
 
         # Main menu
-        self.menu = apr.inspect.menu.MainMenu(self)
+        self.menu = apr.review.menu.MainMenu(self)
         self.config(menu=self.menu)
 
         # Status bar

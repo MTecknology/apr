@@ -11,9 +11,9 @@ APR is essentially broken into four phases:
        :alt: Running monitor with file display
        :width: 90%
 
-2. :ref:`Data Analysis <analyze>` (inspection)
+2. :ref:`Data Analysis <review>` (review)
 
-    .. image:: /images/inspector.webp
+    .. image:: /images/review.webp
        :alt: Inspection GUI
        :width: 90%
 
@@ -25,11 +25,12 @@ APR is essentially broken into four phases:
 
 4. :ref:`Content Inspection <inspect>` (monitor with model)
 
-    .. image:: /images/inspector.webp
-       :alt: Inspection GUI
-       :width: 90%
+   # TODO
+   #    .. image:: /images/inspect_auto.webp
+   #       :alt: Inspection GUI
+   #       :width: 90%
 
-5. (optional) :ref:`Collect <collect>` and :ref:`analyze <analyze>` more data
+5. (optional) :ref:`Collect <collect>` and :ref:`review <review>` more data
    in order to :ref:`re-train <train>` the model and increase :ref:`detection
    <inspect>` accuracy.
 
@@ -71,7 +72,7 @@ Recordings will be saved to ``./_workspace/rotating/``.
    Clapping hands together is a great demonstration exercise. This can be set
    in ``config.yml`` with ``models: [clap]``.
 
-.. _analyze:
+.. _review:
 
 Data Analysis
 -------------
@@ -132,9 +133,9 @@ Open and review captured (from ``rotating/``) using the inspection tool:
 
   .. code-block:: sh
 
-    python3 -m apr -a inspect
+    python3 -m apr -a review
 
-The ``inspect`` option provides a GUI to help simplify the process of reviewing
+The ``review`` option provides a GUI to help simplify the process of reviewing
 and tagging 1-second clips.
 
 Keyboard Shortcuts:
@@ -186,7 +187,7 @@ This will continue until ``target_accuracy`` (from ``config.yml``) is met.
 
 The final products of this training process are ``model.pth`` and ``model.wav``.
 These two files can be copied into another workspace and then used for
-:ref:`inspection (detection) <inspect>`.
+:ref:`content inspection (detection) <inspect>`.
 
 .. _inspect:
 
@@ -195,3 +196,7 @@ Content Inspection
 
 Monitor and Inspect
 
+   # TODO
+   #    .. image:: /images/inspect_manual.webp
+   #       :alt: Inspection GUI
+   #       :width: 90%

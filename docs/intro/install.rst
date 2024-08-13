@@ -23,7 +23,7 @@ Needed to :ref:`**monitor** <recording>`:
     # Font is optional; used by record_cam_timestamp in config.yml
     sudo apt install fonts-freefont-ttf
 
-Needed to :ref:`inspect and train <training>`:
+Needed to :ref:`review and train <training>`:
 
   .. code-block:: sh
 

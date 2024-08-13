@@ -23,7 +23,9 @@ def main():
     apr.config.load_configuration()
 
     # Determine appropriate action
-    action_alias = {'train': 'model'}
+    action_alias = {
+            'train': 'model',
+            }
     action = apr.options.get('action')
     selected_action = action_alias.get(action, action)
     if not selected_action:
