@@ -10,15 +10,23 @@ Rather than using large complex solutions that make use of giant sample data,
 APR uses local recordings in order to identify the exact disturbance. This means
 that even an old laptop is plenty to put this project into action.
 
-**Documentation**: https://audio-pattern-ranger.github.io/apr/
+**Quickstart** (`usage
+<https://audio-pattern-ranger.github.io/apr/usage/overview.html>`__):
 
-**Quickstart**::
+  .. code-block:: sh
 
+    # Get Code
     git clone https://github.com/audio-pattern-ranger/apr
     cd apr
+
+    # Edit Config
     cp example_config.yml config.yml
     sensible-editor config.yml
+
+    # Use APR
     python3 -m apr --help
+
+**Documentation**: https://audio-pattern-ranger.github.io/apr/
 
 Background
 ----------
@@ -35,6 +43,9 @@ classify specific disturbances in the local area.
 
 How It Works
 ------------
+
+  .. image:: https://raw.githubusercontent.com/audio-pattern-ranger/apr/master/docs/images/apr.webp
+     :alt: APR Workflow
 
 1. Set up recorder
 2. Collect some initial recordings

@@ -3,13 +3,25 @@
 .. toctree::
    :hidden:
    :includehidden:
+   :caption: Intro
 
    About APR <self>
    Hardware <intro/hardware>
    Installation <intro/install>
    Configuration <intro/configure>
-   How to Use <intro/usage>
    Troubleshooting <intro/troubleshooting>
+
+.. toctree::
+   :hidden:
+   :includehidden:
+   :caption: Usage
+
+   Overview <usage/overview>
+   Collect Recordings <usage/collect>
+   Review Clips <usage/review>
+   Train a Model <usage/train>
+   Inspect Results <usage/inspect>
+   Automatic Reports <usage/report>
 
 .. _apr:
 
@@ -44,6 +56,9 @@ classify specific disturbances in the local area.
 
 How It Works
 ------------
+
+    .. image:: /images/apr.webp
+        :alt: APR Workflow
 
   1. Set up recorder
   2. Collect some initial recordings
