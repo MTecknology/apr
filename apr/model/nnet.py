@@ -35,8 +35,13 @@ class M5(torch.nn.Module):
         self.pool4 = nn.MaxPool1d(2)
         self.conv5 = nn.Conv1d(2 * n_channel, 1 * n_channel, kernel_size=3)
         self.bn5 = nn.BatchNorm1d(1 * n_channel)
+
+        # Adaptive Global Average Pool (GAP)
+        self.global_avg_pool = nn.AdaptiveAvgPool1d(1)
+        # Prevent over-fitting
         self.dropout = nn.Dropout(apr.config.get('dropout'))
-        self.fc1 = nn.Linear(1 * n_channel, n_output)
+        # Adjusted input size after GAP
+        self.fc1 = nn.Linear(n_channel, n_output)
 
     def forward(self, x):
         F = torch.nn.functional
@@ -54,9 +59,14 @@ class M5(torch.nn.Module):
         x = self.pool4(x)
         x = self.conv5(x)
         x = F.relu(self.bn5(x))
-        x = F.avg_pool1d(x, x.shape[-1])
-        x = x.permute(0, 2, 1)
-        x = self.dropout(x)  # Apply dropout
+
+        # Use global average pooling
+        x = self.global_avg_pool(x)
+        # Flatten for fully connected layer
+        x = x.view(x.size(0), -1)
+        # Apply dropout
+        x = self.dropout(x)
+
         x = self.fc1(x)
         return x
 
