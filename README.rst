@@ -10,22 +10,6 @@ Rather than using large complex solutions that make use of giant sample data,
 APR uses local recordings in order to identify the exact disturbance. This means
 that even an old laptop is plenty to put this project into action.
 
-**Quickstart** (`usage
-<https://audio-pattern-ranger.github.io/apr/usage/overview.html>`__):
-
-  .. code-block:: sh
-
-    # Get Code
-    git clone https://github.com/audio-pattern-ranger/apr
-    cd apr
-
-    # Edit Config
-    cp example_config.yml config.yml
-    sensible-editor config.yml
-
-    # Use APR
-    python3 -m apr --help
-
 **Documentation**: https://audio-pattern-ranger.github.io/apr/
 
 Background
@@ -40,6 +24,49 @@ The primary purpose of this application is to simplify the collection and
 analysis of video footage to identify disturbances (e.g., dog barks) using
 a locally trained model. This model is designed to accurately detect and
 classify specific disturbances in the local area.
+
+Quickstart
+----------
+
+Set of commands that can be copy/pasted to get going quickly:
+
+  .. code-block:: sh
+
+    # Install Requisites
+    sudo apt install vim screen git ffmpeg v4l-utils python3-yaml python3-pydub python3-torch python3-torchaudio python3-fasteners fonts-freefont-ttf
+
+    # Get Code
+    git clone https://github.com/audio-pattern-ranger/apr
+    cd apr
+
+    # Edit Config
+    cp example_config.yml config.yml
+    sensible-editor config.yml
+
+    # Use APR
+    python3 -m apr --help
+
+
+USB Flash Drive
+---------------
+
+SD cards are often too slow for sustained writes. It is much easier to use a
+sperate USB flash drive for this purpose.
+
+as root (replace $USER):
+
+  .. code-block:: sh
+
+    # Format as exFAT
+    mkfs.exfat -L APRDATA /dev/sda1
+
+    # Edit fstab
+    echo '/dev/sda1  /home/$USER/data  exfat  defaults,noatime,nofail,users,uid=1000,gid=1000  0 0' >>/etc/fstab
+    systemctl daemon-reload
+
+Update config.yml::
+
+    workspace: /home/$USER/data
 
 How It Works
 ------------
