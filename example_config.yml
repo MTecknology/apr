@@ -46,6 +46,8 @@
 # List of options used to add a timestamp to videos
 # Missing fonts will be ignored.
 #record_cam_timestamp: ["-vf", "drawtext=fontfile=/usr/share/fonts/truetype/freefont/FreeMonoBold.ttf:text=%{localtime}:fontcolor=red@0.9:x=7:y=7:fontsize=72"]
+# Modify filter to also flip video:
+#record_cam_timestamp: ["-filter_complex", "[0:v]hflip,vflip,drawtext=fontfile=/usr/share/fonts/truetype/freefont/FreeMonoBold.ttf:text=%{localtime}:fontcolor=red@0.9:x=7:y=7:fontsize=72"]
 
 # Quality of compression (slower==smaller)
 # CAUTION: Changing this will impact detection!
