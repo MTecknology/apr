@@ -90,7 +90,7 @@ def recording_loop():
     incoming.mkdir(parents=False, exist_ok=True)
 
     while not apr.monitor.signals.SIGTERM:
-        current_time = datetime.datetime.now().strftime("%F_%H:%M:%S")
+        current_time = datetime.datetime.now().strftime("%F_%H%M%S")
         recording = subprocess.run(
                 record_command + [f'{incoming / current_time}.mkv'],
                 stdout=subprocess.PIPE,
