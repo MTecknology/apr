@@ -117,19 +117,17 @@ def build_ffmpeg_command():
         command.extend(['-f', 'v4l2'])
         command.extend(apr.config.get('record_cam_options'))
         command.extend([
-            '-thread_queue_size', '1024',
             '-i', apr.config.get('record_cam')])
 
     command.extend([
-        '-f', 'alsa', '-thread_queue_size', '1024',
-        '-i', apr.config.get('record_mic')])
+        '-f', 'alsa', '-i', apr.config.get('record_mic')])
 
     if apr.config.get('record_cam'):
-        command.extend(apr.config.get('record_cam_timestamp'))
+        command.extend(apr.config.get('record_cam_filter'))
 
     command.extend([
         '-preset', apr.config.get('record_compression'),
-        '-c:v', 'libx264', '-c:a', 'pcm_s16le',
+        '-c:v', 'libx264', '-c:a', 'copy',
         '-t', apr.config.get('record_duration')])
 
     logging.debug('Constructed ffmpeg command: %s', ' '.join(command))

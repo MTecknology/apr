@@ -16,10 +16,10 @@ DEFAULT_CONFIGURATION = {
     'record_duration': '00:30:00',
     # 'record_mic': MUST_CONFIGURE,
     'record_cam': '/dev/video0',
-    'record_cam_options': ['-video_size', '1920x1080', '-framerate', '5'],
-    'record_cam_timestamp': [
+    'record_cam_options': ['-video_size', '1280x720', '-framerate', '5'],
+    'record_cam_filter': [
         '-vf', 'drawtext=fontfile=/usr/share/fonts/truetype/freefont/FreeMonoBold.ttf:text=%{localtime}:fontcolor=red@0.9:x=7:y=7:fontsize=72'],  # noqa:E501
-    'record_compression': 'medium',
+    'record_compression': 'ultrafast',
     # Training
     'target_accuracy': 95,
     'learning_rate': 0.001,

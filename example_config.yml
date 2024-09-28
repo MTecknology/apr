@@ -41,18 +41,19 @@
 
 # List of parameters passed to ffmpeg.v4l2
 # Adjust this based on needs and device capabilities.
-#record_cam_options: ["-video_size", "1920x1080", "-framerate", "5"]
+#record_cam_options: ["-video_size", "1280x720", "-framerate", "5"]
 
 # List of options used to add a timestamp to videos
 # Missing fonts will be ignored.
-#record_cam_timestamp: ["-vf", "drawtext=fontfile=/usr/share/fonts/truetype/freefont/FreeMonoBold.ttf:text=%{localtime}:fontcolor=red@0.9:x=7:y=7:fontsize=72"]
+#record_cam_filter: ["-vf", "drawtext=fontfile=/usr/share/fonts/truetype/freefont/FreeMonoBold.ttf:text=%{localtime}:fontcolor=red@0.9:x=7:y=7:fontsize=72"]
+#
 # Modify filter to also flip video:
-#record_cam_timestamp: ["-filter_complex", "[0:v]hflip,vflip,drawtext=fontfile=/usr/share/fonts/truetype/freefont/FreeMonoBold.ttf:text=%{localtime}:fontcolor=red@0.9:x=7:y=7:fontsize=72"]
+#record_cam_filter: ["-filter_complex", "[0:v]hflip,vflip,drawtext=fontfile=/usr/share/fonts/truetype/freefont/FreeMonoBold.ttf:text=%{localtime}:fontcolor=red@0.9:x=7:y=7:fontsize=72"]
 
 # Quality of compression (slower==smaller)
 # CAUTION: Changing this will impact detection!
 # See: https://trac.ffmpeg.org/wiki/Encode/H.264#a2.Chooseapresetandtune
-#record_compression: medium
+#record_compression: ultrafast
 
 
 ##
