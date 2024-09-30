@@ -72,7 +72,7 @@ class M5(torch.nn.Module):
 
 
 class NoiseDataset(torch.utils.data.Dataset):
-    def __init__(self, root_dir, models, transform=None, n_input=256):
+    def __init__(self, root_dir, models, transform=[], n_input=256):
         self.audio_list = glob.glob(f'{root_dir}/*/*.wav')
         self.transform = transform
         self.n_input = n_input

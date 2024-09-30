@@ -84,10 +84,7 @@ class AudioClassifier:
         # Convert multiple channels to mono
         if wv.shape[0] > 1:
             wv = wv.mean(dim=0, keepdim=True)
-        transform = torchaudio.transforms.Resample(
-                orig_freq=sample_rate, new_freq=16000)
-        transformed = transform(wv)
-        return (transformed, sample_rate)
+        return (wv, sample_rate)
 
     def get_loader(self, data):
         '''
@@ -100,9 +97,7 @@ class AudioClassifier:
         # Load specified loader
         path = getattr(self, data)
         dataset = apr.model.nnet.NoiseDataset(
-                root_dir=path, models=self.models,
-                transform=[torchaudio.transforms.Resample(
-                    orig_freq=self.sample_rate, new_freq=16000)])
+                root_dir=path, models=self.models)
         loader = torch.utils.data.DataLoader(
                 dataset, batch_size=self.batch_size,
                 shuffle=True, collate_fn=collate_fn)
